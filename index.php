@@ -1,7 +1,7 @@
 <?php
 
 require_once('helm.php');
-require_once('component.php');
+// require_once('component.php');
 require_once('chestCase.php');
 require_once('arms.php');
 require_once('legs.php');
@@ -26,9 +26,14 @@ class IronMan{
         $this->legs = $legs;
         self::$counter++;
     }
+
+    public function getName(){
+        echo $this->name;
+
+    }
     
     public function preparati(){
-        echo $this->name . $this->helm->indossa() . $this->chestCase->indossa() . $this->arms->indossa() . $this->legs->indossa();
+        echo $this->getName() . $this->helm->indossa() . $this->chestCase->indossa() . $this->arms->indossa() . $this->legs->indossa();
     }
 
     public static function showCounter(){
@@ -58,8 +63,11 @@ $hulkBusterIronMan->preparati();
 
 IronMan::showCounter();
 
+$ironMan->getName();
 $ironMan->chestCase->attacca();
+$darkIronMan->getName();
 $darkIronMan->legs->attacca();
+$hulkBusterIronMan->getName();
 $hulkBusterIronMan->chestCase->difendi();
 // $ironMan->chestCase->difendi();
 // $ironMan->legs->difendi();
